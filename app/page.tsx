@@ -55,7 +55,7 @@ export default function Home() {
           >
             <h2 className="text-lg font-semibold">Building Scalable Web Solutions for Tomorrow</h2>
             <p className="text-gray-600 text-sm dark:text-gray-400 max-w-2xl">
-              I'm a <span className="text-black dark:text-white">MERN </span>stack web developer focused on building clean, responsive, and scalable web applications.
+              I &apos; m a <span className="text-black dark:text-white">MERN </span>stack web developer focused on building clean, responsive, and scalable web applications.
               I work with <span className="text-black dark:text-white"> MongoDB, Express, React, and Node.js, </span> and I also use  <span className="text-black dark:text-white">PostgreSQL </span> for robust relational data handling.
 From designing <span className="text-black dark:text-white">RESTful APIs </span>to deploying full-stack apps, I create solutions that are fast, user-friendly, and built to grow.
             </p>
