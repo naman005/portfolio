@@ -1,103 +1,245 @@
+"use client";
+
 import Image from "next/image";
+import profile from "../public/profile.jpeg";
+import ThemeToggle from "../components/ui/theme-toggle";
+import { motion } from "framer-motion";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import Link from "next/link";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FiExternalLink } from 'react-icons/fi';
+import image1 from "../public/expense-tracker.png";
+import image2 from "../public/portfolio.png";
+import image3 from "../public/simon.png";
+import image4 from "../public/moneycare.png";
+
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+        <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+        <div className="mx-auto max-w-xl px-4 py-20">
+          <motion.header
+          initial={{opacity: 0, x: -100}}
+          animate={{opacity: 1, x: 0}}
+          transition={{duration: 0.8}}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          className="flex items-center justify-between mb-12">
+          <div className="w-20 h-20 rounded-full overflow-hidden">
+            <Image src={profile} alt="profile picture" className="cursor-pointer transition-all duration-300 hover:scale-110"></Image>
+          </div>
+          <ThemeToggle />
+          </motion.header>
+
+          <main className="space-y-10">
+          <section className="space-y-10">
+          <motion.div 
+          initial={{opacity: 0, x: 100}}
+          animate={{opacity: 1, x: 0}}
+          transition={{duration: 0.8}}
+          className="space-y-1"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">
+            Naman Chaturvedi
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">Web Developer & Aspiring SDE</p>
+          <p className="text-gray-600 dark:text-gray-400">India</p>
+          </motion.div>
+
+          <motion.div
+          initial={{opacity: 0, x: -100}}
+          animate={{opacity: 1, x: 0}}
+          transition={{duration: 0.8}}
+          className="space-y-3"
           >
-            Read our docs
+            <h2 className="text-lg font-semibold">Building Scalable Web Solutions for Tomorrow</h2>
+            <p className="text-gray-600 text-sm dark:text-gray-400 max-w-2xl">
+              I'm a <span className="text-black dark:text-white">MERN </span>stack web developer focused on building clean, responsive, and scalable web applications.
+              I work with <span className="text-black dark:text-white"> MongoDB, Express, React, and Node.js, </span> and I also use  <span className="text-black dark:text-white">PostgreSQL </span> for robust relational data handling.
+From designing <span className="text-black dark:text-white">RESTful APIs </span>to deploying full-stack apps, I create solutions that are fast, user-friendly, and built to grow.
+            </p>
+          </motion.div>
+
+          <motion.div 
+          initial={{opacity: 0, x: 50}}
+          animate={{opacity: 1, x: 0}}
+          transition={{duration: 0.8}}
+          className="flex items-center gap-3"
+          >
+            <a href="/resume.pdf" download>
+          <Button className="cursor-pointer rounded-full bg-gradient-to-r from-rose-400 to-indigo-600 text-white transition-transform hover:scale-105">Resume</Button>
           </a>
+          <Link href="https://github.com/naman005" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+          <FaGithub className="w-6 h-6" />
+          </Link>
+
+          <Link href="https://www.linkedin.com/in/naman005" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+          <FaLinkedin className="w-6 h-6" />
+          </Link>
+
+          </motion.div>
+
+          </section>
+
+          <motion.section
+          initial={{opacity: 0, y: 100}}
+          animate={{opacity: 1, y: 0}}
+          transition={{duration: 0.8}}
+          className="space-y-8"
+          >
+          <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Education</h2>
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-600 dark:text-gray-400">July, 2022 - 2025</p>
+                <p className="font-medium">Bachelor of Computer Applications</p>
+                <p className="text-blue-600 dark:text-blue-400">Sanskriti University, Mathura</p>
+              </div>
+
+            </div>
+
+          </div>
+          </motion.section>
+           <motion.section
+  initial={{ opacity: 0, y: 100 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="space-y-8"
+>
+  <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">
+    Projects
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <Card className="bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 transition-transform duration-300 hover:scale-105"
+      >
+        <CardContent>
+          <Image src={image1} alt="expense-tracker" className="rounded-lg mb-4 w-full h-auto" />
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-medium">Expense Tracker</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">MongoDB, Express.js, React.js, Node.js, JWT, Recharts, TailwindCSS</p>
+            </div>
+            <div>
+             <Link href="https://github.com/naman005/expense-tracker" className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+
+            <Button variant="ghost">
+          <FaGithub className="w-6 h-6" />
+            </Button>
+            </Link>
+
+            <Link href="https://expense-tracker-gray-one.vercel.app" className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+
+            <Button variant="ghost">
+          <FiExternalLink className="w-6 h-6" />
+            </Button>
+            </Link>
+
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      <Card className="bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 transition-transform duration-300 hover:scale-105"
+      >
+        <CardContent>
+          <Image src={image2} alt="portfolio" className="rounded-lg mb-4 w-full h-auto" />
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-medium">Portfolio</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400"> Next.js, Framer Motion, shadcn/ui, Vercel</p>
+            </div>
+            <div>
+             <Link href="https://github.com/naman005/portfolio" className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+
+            <Button variant="ghost">
+          <FaGithub className="w-6 h-6" />
+          
+            </Button>
+            </Link>
+  <Link href="#" className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+
+            <Button variant="ghost">
+          <FiExternalLink className="w-6 h-6" />
+            </Button>
+                      </Link>
+
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      
+      <Card className="bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 transition-transform duration-300 hover:scale-105"
+      >
+        <CardContent>
+          <Image src={image3} alt="Simon Says" className="rounded-lg mb-4 w-full h-auto" />
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-medium">Simon Says</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400"> HTML, CSS, JavaScript, Netlify</p>
+            </div>
+            <div>
+             <Link href="https://github.com/naman005/simon-game" className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+
+            <Button variant="ghost">
+          <FaGithub className="w-6 h-6" />
+          
+            </Button>
+            </Link>
+            <Link href="https://simon-memorygame.netlify.app/ " className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+
+            <Button variant="ghost">
+          <FiExternalLink className="w-6 h-6" />
+          
+            </Button>
+            </Link>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+  </div>
+</motion.section>
+<motion.section
+  initial={{ opacity: 0, y: 100 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="space-y-8"
+>
+  <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">
+    Freelance
+  </h2>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <Card className="bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-zinc-800 transition-transform duration-300 hover:scale-105"
+      >
+        <CardContent>
+          <Image src={image4} alt="Money Care" className="rounded-lg mb-4 w-full h-auto" />
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="font-medium">MoneyCare Learn</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">HTML, TailwindCSS, JavaScript, Netlify</p>
+            </div>
+            <div>
+
+            
+            
+             <Link href="https://moneycarelearn.netlify.app/" className="cursor-pointer text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+          <Button variant="ghost">
+          <FiExternalLink className="w-6 h-6" />
+          </Button>
+          </Link>
+            
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+      
+  </div>
+
+</motion.section>
+  <p className="text-gray-500">© 2025 Naman Chaturvedi</p>
+</main>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
   );
 }
